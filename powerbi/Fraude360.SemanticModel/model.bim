@@ -1,0 +1,2210 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"dim_date\",\"dim_typologie\",\"fait_ab_test\",\"fait_alertes\",\"fait_alertes_surveillance\",\"fait_derive\",\"fait_kpi_quotidien\",\"fait_performance_modele\",\"fait_performance_regles\",\"fait_typologie_quotidien\",\"CheminDonnees\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "fr-CA",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "CheminDonnees",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Text"
+          }
+        ],
+        "expression": "\"C:\\\\fraude-360\\\\powerbi\\\\data\\\\\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "kind": "m",
+        "lineageTag": "b7acc85d-c419-4457-be86-cd13f8b5272f"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "6181eae4-2242-4cfc-8a08-40c3701bd527",
+        "fromColumn": "date",
+        "fromTable": "fait_kpi_quotidien",
+        "toColumn": "date",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "b4b3a456-3286-4837-87ed-87d743883cff",
+        "fromColumn": "date",
+        "fromTable": "fait_alertes",
+        "toColumn": "date",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "76076d74-2a7f-4ac7-b8ad-6baf0b7930c1",
+        "fromColumn": "date",
+        "fromTable": "fait_typologie_quotidien",
+        "toColumn": "date",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "421e69e7-9aac-4100-8d26-90db8188d5bf",
+        "fromColumn": "date",
+        "fromTable": "fait_derive",
+        "toColumn": "date",
+        "toTable": "dim_date"
+      },
+      {
+        "name": "a57dd51b-0f1d-4fe1-9246-292863bf0524",
+        "fromColumn": "typologie_fraude",
+        "fromTable": "fait_typologie_quotidien",
+        "toColumn": "typologie",
+        "toTable": "dim_typologie"
+      },
+      {
+        "name": "ea532733-bbad-4d88-b0dd-715bf8b50a09",
+        "fromColumn": "typologie_fraude",
+        "fromTable": "fait_alertes",
+        "toColumn": "typologie",
+        "toTable": "dim_typologie"
+      }
+    ],
+    "sourceQueryCulture": "fr-CA",
+    "tables": [
+      {
+        "name": "dim_date",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-mm-dd",
+            "isKey": true,
+            "lineageTag": "a05b9ed9-7b02-4497-8487-574959deb66d",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "annee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "3c98d9f7-ffd4-4dd6-835b-f60933d24b23",
+            "sourceColumn": "annee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "mois",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "8f3cc190-5eb0-4913-93a9-c991053be54d",
+            "sourceColumn": "mois",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "nom_mois",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "27bac618-c211-4750-8d15-8f16ff5a7dbf",
+            "sourceColumn": "nom_mois",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "annee_mois",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1e2bd215-7133-4e0b-aad4-1a1af66266eb",
+            "sourceColumn": "annee_mois",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "semaine",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "d1871504-71a0-4316-9165-21b4ba4ca8d8",
+            "sourceColumn": "semaine",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "jour_semaine",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c0bbc756-9e73-4b56-bc2c-7e98ee29716b",
+            "sourceColumn": "jour_semaine",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "est_fin_semaine",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "28e79dfb-4583-4950-86e9-50c910f82983",
+            "sourceColumn": "est_fin_semaine",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "numero_jour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "564e7c10-3adb-4d99-961b-c634324572b9",
+            "sourceColumn": "numero_jour",
+            "summarizeBy": "sum"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "6996b561-2732-4584-98db-e7d8f5aea8e1",
+        "partitions": [
+          {
+            "name": "dim_date",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"dim_date.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"date\", type date}, {\"annee\", Int64.Type}, {\"mois\", Int64.Type}, {\"nom_mois\", type text}, {\"annee_mois\", type text}, {\"semaine\", Int64.Type}, {\"jour_semaine\", type text}, {\"est_fin_semaine\", Int64.Type}, {\"numero_jour\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dim_typologie",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "typologie",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dd453596-ca9a-4139-a693-81fce9002b13",
+            "sourceColumn": "typologie",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "description",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2da80a8b-8d82-4869-bc37-0499a92e83e7",
+            "sourceColumn": "description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "connue_du_modele_v1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "450cb211-4863-488c-b64f-c80d2fe4a018",
+            "sourceColumn": "connue_du_modele_v1",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "3e82b09e-7e1d-4ec1-8802-9e7f1bf51fc2",
+        "partitions": [
+          {
+            "name": "dim_typologie",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"dim_typologie.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"typologie\", type text}, {\"description\", type text}, {\"connue_du_modele_v1\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_ab_test",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "experience",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7f8d628e-32a9-4416-aea4-bb11ee94d0fb",
+            "sourceColumn": "experience",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "bras",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "117ecba4-e8b0-41a5-add1-8c12c5581c04",
+            "sourceColumn": "bras",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "strategie",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "556bc5ed-f88d-4f12-8c87-f350d867a00f",
+            "sourceColumn": "strategie",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "transactions",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "0677a20c-aaab-49fa-a3c2-417e2f19aed4",
+            "sourceColumn": "transactions",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fraudes_reelles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "48b68635-0212-4a3f-a84c-5fcfa309202c",
+            "sourceColumn": "fraudes_reelles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fraudes_detectees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "a57a7bb0-6cd6-4646-b436-e2d2f016c960",
+            "sourceColumn": "fraudes_detectees",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "taux_detection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "332591cc-7783-456b-998c-0e4ce02e22b4",
+            "sourceColumn": "taux_detection",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "alertes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "b3c8fbcb-775c-4415-a615-3d9f333d9565",
+            "sourceColumn": "alertes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "taux_alerte_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "051b95cf-8fed-4a36-9a63-015cfc8d4328",
+            "sourceColumn": "taux_alerte_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "precision",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "74b57fd1-9869-48ae-98a5-d90385539fec",
+            "sourceColumn": "precision",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_evite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "73605e15-23e9-44a9-977a-5ee08e236e2b",
+            "sourceColumn": "montant_fraude_evite",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_subi",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "461b6f02-3466-4e9f-a62c-93e340733acc",
+            "sourceColumn": "montant_fraude_subi",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cout_total",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "5f61f9e7-0d6e-4a02-8d8f-1455bc18be2c",
+            "sourceColumn": "cout_total",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cout_par_1000_tx",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "4bfbfe96-7602-4acc-86f2-01759f244d90",
+            "sourceColumn": "cout_par_1000_tx",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "decision_experience",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "700df20f-292b-4794-a02e-a3137097c240",
+            "sourceColumn": "decision_experience",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valeur_p",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "864dc2ac-7eb1-4117-8861-38ce1dde6546",
+            "sourceColumn": "valeur_p",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "2fbbd198-4b66-4790-ad65-1a25c0181fc8",
+        "partitions": [
+          {
+            "name": "fait_ab_test",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_ab_test.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"experience\", type text}, {\"bras\", type text}, {\"strategie\", type text}, {\"transactions\", Int64.Type}, {\"fraudes_reelles\", Int64.Type}, {\"fraudes_detectees\", Int64.Type}, {\"taux_detection\", type number}, {\"alertes\", Int64.Type}, {\"taux_alerte_pct\", type number}, {\"precision\", type number}, {\"montant_fraude_evite\", type number}, {\"montant_fraude_subi\", type number}, {\"cout_total\", type number}, {\"cout_par_1000_tx\", type number}, {\"decision_experience\", type text}, {\"valeur_p\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_alertes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "transaction_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a2a0ff31-482d-43c0-952d-a8573bd19c27",
+            "sourceColumn": "transaction_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-mm-dd",
+            "lineageTag": "331def61-00ed-4247-ad7c-4c4ec0eac992",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "horodatage",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "54a3efb0-bc78-48e6-990d-28fd5f3a7467",
+            "sourceColumn": "horodatage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "carte_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "43888e1c-6ad5-43ba-ab04-c1fa8f2e75dd",
+            "sourceColumn": "carte_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "client_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5fa2f18f-be67-4384-b6de-5fcf80912778",
+            "sourceColumn": "client_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "marchand_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3d3ece73-e424-4574-9b27-ba5542394c22",
+            "sourceColumn": "marchand_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "categorie_marchand",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "abc12a7b-0dde-44e5-a989-af7662324261",
+            "sourceColumn": "categorie_marchand",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "canal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b2589882-f082-4c69-8a90-7e3ee43b6b13",
+            "sourceColumn": "canal",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "montant",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "93f88a7e-2e83-4c6e-8d9e-e606298e37c0",
+            "sourceColumn": "montant",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "score_modele",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "22cf9c2d-3eff-4041-ba02-6f0bf2ac1753",
+            "sourceColumn": "score_modele",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "score_regles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "b6a80947-e058-4882-b61c-562ebd2a938c",
+            "sourceColumn": "score_regles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "regles_declenchees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eb8703e2-9dfe-42d2-b03a-4af51fd50ba2",
+            "sourceColumn": "regles_declenchees",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "decision",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "049a24df-6cea-4ca6-b856-e95c314b1ddd",
+            "sourceColumn": "decision",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "est_fraude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "b1af7376-8d08-4af7-a7e3-199f6cce8b42",
+            "sourceColumn": "est_fraude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "typologie_fraude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "16cf0f3e-d046-455b-bb2c-3ed0d369fae0",
+            "sourceColumn": "typologie_fraude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "version_modele",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "d3dadde4-9eab-4746-9d0b-09e125175260",
+            "sourceColumn": "version_modele",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "priorite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c9e7fb71-585d-4ff7-852c-b8a6d9b266c6",
+            "sourceColumn": "priorite",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "statut_enquete",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "598023a6-8d5e-47b2-9448-54f60a767498",
+            "sourceColumn": "statut_enquete",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "3c941f5b-8628-4b4c-a5e3-ebf358089ad9",
+        "measures": [
+          {
+            "name": "Alertes en attente",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Transactions dans la file d'enquete",
+            "expression": "COUNTROWS(fait_alertes)",
+            "formatString": "#,0",
+            "lineageTag": "6dab2c45-eb39-443f-81b4-beeac27fcdcb"
+          },
+          {
+            "name": "Montant sous enquete",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Dollars concernes par les alertes",
+            "expression": "SUM(fait_alertes[montant])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "bd3da382-7ea3-4bec-862e-9dfee7154ee6"
+          },
+          {
+            "name": "Score moyen des alertes",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Niveau de risque moyen de la file",
+            "expression": "AVERAGE(fait_alertes[score_modele])",
+            "formatString": "0.000",
+            "lineageTag": "49865126-47b6-4c5a-95c9-587dffd45efa"
+          },
+          {
+            "name": "Alertes critiques",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Alertes a traiter en priorite absolue",
+            "expression": "CALCULATE(COUNTROWS(fait_alertes), fait_alertes[priorite] = \"1-critique\")",
+            "formatString": "#,0",
+            "lineageTag": "6cbbe59f-4c31-4b9d-adb5-d9ecb7d8848b"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fait_alertes",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_alertes.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"transaction_id\", type text}, {\"date\", type date}, {\"horodatage\", type text}, {\"carte_id\", type text}, {\"client_id\", type text}, {\"marchand_id\", type text}, {\"categorie_marchand\", type text}, {\"canal\", type text}, {\"montant\", type number}, {\"score_modele\", type number}, {\"score_regles\", type number}, {\"regles_declenchees\", type text}, {\"decision\", type text}, {\"est_fraude\", Int64.Type}, {\"typologie_fraude\", type text}, {\"version_modele\", Int64.Type}, {\"priorite\", type text}, {\"statut_enquete\", type text}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_alertes_surveillance",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "761c395f-d003-4ec6-b59c-f793eba0456d",
+            "sourceColumn": "type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gravite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8d44ede7-8d08-4f3e-965e-f6bac410e7e0",
+            "sourceColumn": "gravite",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "variable",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "616665ae-0aff-4203-989e-23b6b95caeec",
+            "sourceColumn": "variable",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "valeur",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "7c82f59e-5b22-4b5e-bb90-d2edca37a525",
+            "sourceColumn": "valeur",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "message",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dfeebcb7-f59d-407c-89ea-289de48aedb8",
+            "sourceColumn": "message",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ea06a2a7-3863-4869-aca5-1a4ec04a6a45",
+        "partitions": [
+          {
+            "name": "fait_alertes_surveillance",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_alertes_surveillance.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"type\", type text}, {\"gravite\", type text}, {\"variable\", type text}, {\"valeur\", type number}, {\"message\", type text}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_derive",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-mm-dd",
+            "lineageTag": "58fd4b6a-74de-442a-a34a-ec87c3bfda39",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "variable",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fa9cae35-7aed-4811-a44e-046392932224",
+            "sourceColumn": "variable",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "psi",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "18c07d42-0ae4-4a83-9d20-f68879140cf3",
+            "sourceColumn": "psi",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ks",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "6e36731e-7dcf-41f1-a840-d490dccb5335",
+            "sourceColumn": "ks",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "valeur_p_ks",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "a0463506-4f87-4d1d-87cf-b71b1680868c",
+            "sourceColumn": "valeur_p_ks",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "niveau",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6374203b-af6b-4dce-9c84-f5c31ab49f62",
+            "sourceColumn": "niveau",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b41d7030-4a75-401b-99a2-b56aa664db31",
+        "measures": [
+          {
+            "name": "PSI maximal",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Derive la plus forte observee ; alerte au-dela de 0,25",
+            "expression": "MAX(fait_derive[psi])",
+            "formatString": "0.000",
+            "lineageTag": "95093da5-3c1b-4848-bbb1-8ef97a63d4b6"
+          },
+          {
+            "name": "Variables en alerte",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Nombre de variables dont la distribution a change",
+            "expression": "CALCULATE(DISTINCTCOUNT(fait_derive[variable]), fait_derive[psi] >= 0.25)",
+            "formatString": "#,0",
+            "lineageTag": "9c0c4408-631a-48b2-805b-dbb3692dacc4"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fait_derive",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_derive.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"date\", type date}, {\"variable\", type text}, {\"psi\", type number}, {\"ks\", type number}, {\"valeur_p_ks\", type number}, {\"niveau\", type text}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_kpi_quotidien",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-mm-dd",
+            "lineageTag": "67284754-335e-4a2f-8cc7-2500ff087ece",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "transactions",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "943c574f-bc73-47eb-8b06-2c941dab60c8",
+            "sourceColumn": "transactions",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_total",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "cff4b216-d379-4285-a9b5-d54b8a273d48",
+            "sourceColumn": "montant_total",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "alertes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "3dd9fdbb-2b6d-4d38-b36b-978c4c476fc6",
+            "sourceColumn": "alertes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "blocages",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "92dd7012-295a-4dad-b1a2-51a71ea70a2d",
+            "sourceColumn": "blocages",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fraudes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "b4aece57-4cb7-4e4f-9ada-f9d37645839d",
+            "sourceColumn": "fraudes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "score_moyen",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "9b2e4ad1-5334-4ada-be34-1a738e47a4d7",
+            "sourceColumn": "score_moyen",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fraudes_detectees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "a62acd4b-7bf8-4040-bf51-6610ab1bdca9",
+            "sourceColumn": "fraudes_detectees",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "394e9451-25c2-4598-a9e6-2b13be679ed6",
+            "sourceColumn": "montant_fraude",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_evite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "4e5acaea-fbff-4404-8e9f-738836f53fde",
+            "sourceColumn": "montant_fraude_evite",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_subi",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "dff54a51-709b-4c57-8d6b-2faa41b6b303",
+            "sourceColumn": "montant_fraude_subi",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "faux_positifs",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "09ab21ac-355f-48fe-8751-4a17791e47c7",
+            "sourceColumn": "faux_positifs",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cout_revues_manuelles",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "1f18c27f-a760-4ce3-abf1-c302f7d00752",
+            "sourceColumn": "cout_revues_manuelles",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cout_total",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "0323947a-3faa-4903-8880-844b91986f7b",
+            "sourceColumn": "cout_total",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "52617fc2-3b2b-4c39-bf3f-554c1dfdc82e",
+        "measures": [
+          {
+            "name": "Nb transactions",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Volume transactionnel traite sur la periode",
+            "expression": "SUM(fait_kpi_quotidien[transactions])",
+            "formatString": "#,0",
+            "lineageTag": "ba4b44b9-c55f-4e1e-9029-63c7703d3853"
+          },
+          {
+            "name": "Nb fraudes",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Transactions frauduleuses confirmees",
+            "expression": "SUM(fait_kpi_quotidien[fraudes])",
+            "formatString": "#,0",
+            "lineageTag": "03d8d145-51e4-4e4c-98dd-e6879104d0ed"
+          },
+          {
+            "name": "Nb fraudes detectees",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Fraudes captees par le dispositif (modele ou regles)",
+            "expression": "SUM(fait_kpi_quotidien[fraudes_detectees])",
+            "formatString": "#,0",
+            "lineageTag": "1d221b50-e3d3-43f9-aa04-dc6d30495ad9"
+          },
+          {
+            "name": "Nb alertes",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Transactions envoyees en revue ou bloquees",
+            "expression": "SUM(fait_kpi_quotidien[alertes])",
+            "formatString": "#,0",
+            "lineageTag": "49b34da3-0147-4098-9cbd-43ec0f1af0d4"
+          },
+          {
+            "name": "Nb blocages",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Transactions refusees",
+            "expression": "SUM(fait_kpi_quotidien[blocages])",
+            "formatString": "#,0",
+            "lineageTag": "1c073c84-6073-40c2-9423-9dfc28d1c5ce"
+          },
+          {
+            "name": "Taux de fraude",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Part des transactions frauduleuses",
+            "expression": "DIVIDE([Nb fraudes], [Nb transactions])",
+            "formatString": "0.000 %",
+            "lineageTag": "3e2b02fe-eec6-4cb9-a0a2-e36c73fbbc5a"
+          },
+          {
+            "name": "Taux de detection",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Rappel : part des fraudes captees",
+            "expression": "DIVIDE([Nb fraudes detectees], [Nb fraudes])",
+            "formatString": "0.0 %",
+            "lineageTag": "ac974afe-60c3-4626-8640-c3ce2097c204"
+          },
+          {
+            "name": "Taux d'alerte",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Charge de travail imposee a l'equipe d'enquete",
+            "expression": "DIVIDE([Nb alertes], [Nb transactions])",
+            "formatString": "0.00 %",
+            "lineageTag": "38255f33-9bca-4b2d-9290-7372b1926460"
+          },
+          {
+            "name": "Precision des alertes",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Part des alertes qui sont de vraies fraudes",
+            "expression": "DIVIDE([Nb fraudes detectees], [Nb alertes])",
+            "formatString": "0.0 %",
+            "lineageTag": "1f503095-0ca8-4750-810e-b7cd71ccd63f"
+          },
+          {
+            "name": "Montant traite",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Volume monetaire des transactions",
+            "expression": "SUM(fait_kpi_quotidien[montant_total])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "7793c949-afb6-45f9-b7fb-9e6508f97337"
+          },
+          {
+            "name": "Pertes evitees",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Dollars de fraude interceptes",
+            "expression": "SUM(fait_kpi_quotidien[montant_fraude_evite])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "c686ac5f-3718-493c-a1d1-0620ddb047a0"
+          },
+          {
+            "name": "Pertes subies",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Dollars de fraude passes au travers",
+            "expression": "SUM(fait_kpi_quotidien[montant_fraude_subi])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "30b20f89-517c-448a-801e-d8bf182f0199"
+          },
+          {
+            "name": "Pertes totales potentielles",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Exposition brute a la fraude",
+            "expression": "[Pertes evitees] + [Pertes subies]",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "62514859-02bf-4857-a042-e1991ef6e026"
+          },
+          {
+            "name": "Rappel en dollars",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Part des dollars de fraude effectivement protegee",
+            "expression": "DIVIDE([Pertes evitees], [Pertes totales potentielles])",
+            "formatString": "0.0 %",
+            "lineageTag": "1a3d5480-4a90-4009-b638-401fb177907f"
+          },
+          {
+            "name": "Cout des revues",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Cout operationnel du traitement des alertes",
+            "expression": "SUM(fait_kpi_quotidien[cout_revues_manuelles])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "5934ad7e-f19a-4d3d-8d1f-4f13cd471e8a"
+          },
+          {
+            "name": "Cout total",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Pertes subies + cout des revues manuelles",
+            "expression": "SUM(fait_kpi_quotidien[cout_total])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "9b11a06c-da05-43f2-9c0c-f524d701fd00"
+          },
+          {
+            "name": "Cout pour 1000 transactions",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Indicateur de pilotage normalise par le volume",
+            "expression": "DIVIDE([Cout total], [Nb transactions]) * 1000",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "08fb82b7-a92c-4545-8203-9c742a1b61f6"
+          },
+          {
+            "name": "Pertes evitees 7 jours",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Dollars proteges sur les sept derniers jours",
+            "expression": "CALCULATE([Pertes evitees], DATESINPERIOD(dim_date[date], MAX(dim_date[date]), -7, DAY))",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "f3922c21-f65f-4c20-932f-7e294ba5307e"
+          },
+          {
+            "name": "Taux de detection 7 jours",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Rappel glissant : le signal a surveiller au quotidien",
+            "expression": "CALCULATE([Taux de detection], DATESINPERIOD(dim_date[date], MAX(dim_date[date]), -7, DAY))",
+            "formatString": "0.0 %",
+            "lineageTag": "2e758536-d7a9-4127-aed7-5a2e0631736e"
+          },
+          {
+            "name": "Variation du taux d'alerte",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Evolution de la charge d'alertes par rapport a la semaine precedente",
+            "expression": [
+              "VAR Courant = [Taux d'alerte]",
+              "VAR Precedent = CALCULATE([Taux d'alerte], DATEADD(dim_date[date], -7, DAY))",
+              "RETURN DIVIDE(Courant - Precedent, Precedent)"
+            ],
+            "formatString": "+0.0 %;-0.0 %;0 %",
+            "lineageTag": "a8b53b27-edb6-49bb-90af-8e523953e2a4"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fait_kpi_quotidien",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_kpi_quotidien.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"date\", type date}, {\"transactions\", Int64.Type}, {\"montant_total\", type number}, {\"alertes\", Int64.Type}, {\"blocages\", Int64.Type}, {\"fraudes\", Int64.Type}, {\"score_moyen\", type number}, {\"fraudes_detectees\", Int64.Type}, {\"montant_fraude\", type number}, {\"montant_fraude_evite\", type number}, {\"montant_fraude_subi\", type number}, {\"faux_positifs\", Int64.Type}, {\"cout_revues_manuelles\", type number}, {\"cout_total\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_performance_modele",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "version_modele",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "ddc79cea-ebe6-46e4-9f6c-3497b7c45275",
+            "sourceColumn": "version_modele",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "jeu_variables",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "79e1a9eb-731f-4af4-bc82-6c900ceab92d",
+            "sourceColumn": "jeu_variables",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "algorithme",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1ca2db62-b4f7-4277-91e2-e657a17023f8",
+            "sourceColumn": "algorithme",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "nb_variables",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "72b9971a-427b-47ce-8d3d-d0f1b46babe1",
+            "sourceColumn": "nb_variables",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "seuil_decision",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "910c8dbd-1693-478d-aa25-07b0d41466e2",
+            "sourceColumn": "seuil_decision",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "pr_auc",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "68f197d9-1236-4cdd-bc21-1aeda50f4f04",
+            "sourceColumn": "pr_auc",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "roc_auc",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "a2d86618-e4ea-411d-b20b-c0ea4db573a7",
+            "sourceColumn": "roc_auc",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "precision",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "7ca14031-6a42-40be-86ee-0de65979bdf8",
+            "sourceColumn": "precision",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "rappel",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "297094a7-71dc-488b-bd4d-39ec165d18e6",
+            "sourceColumn": "rappel",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "f1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "ac8e5abe-c8cb-4079-93f7-b5d2dd397a19",
+            "sourceColumn": "f1",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "taux_alerte_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "de31fa9c-75d3-4bb5-8643-e82098c7ffa6",
+            "sourceColumn": "taux_alerte_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_evite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "c95e29fa-c96a-409e-aa63-1363683a9752",
+            "sourceColumn": "montant_fraude_evite",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant_fraude_subi",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "35bc6f6e-acce-478a-8cdf-b438dfe3a3ba",
+            "sourceColumn": "montant_fraude_subi",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "cout_par_1000_tx",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "d2ea215f-b762-4115-9d50-ee36d2b9c398",
+            "sourceColumn": "cout_par_1000_tx",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "economie_vs_sans_modele",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "cf100829-e084-467b-a30a-2097e205f19f",
+            "sourceColumn": "economie_vs_sans_modele",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "df96a39c-ffd5-4ac2-99a3-778b28e68485",
+        "measures": [
+          {
+            "name": "PR-AUC",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Aire sous la courbe precision-rappel du modele",
+            "expression": "MAX(fait_performance_modele[pr_auc])",
+            "formatString": "0.000",
+            "lineageTag": "7c754117-9568-476e-8e80-cb29762db0be"
+          },
+          {
+            "name": "Economie annoncee",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Gain estime du modele par rapport a l'absence de dispositif",
+            "expression": "SUM(fait_performance_modele[economie_vs_sans_modele])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "28bb264b-d307-4c47-ad4c-6409b318508f"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fait_performance_modele",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_performance_modele.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"version_modele\", Int64.Type}, {\"jeu_variables\", type text}, {\"algorithme\", type text}, {\"nb_variables\", Int64.Type}, {\"seuil_decision\", type number}, {\"pr_auc\", type number}, {\"roc_auc\", type number}, {\"precision\", type number}, {\"rappel\", type number}, {\"f1\", type number}, {\"taux_alerte_pct\", type number}, {\"montant_fraude_evite\", type number}, {\"montant_fraude_subi\", type number}, {\"cout_par_1000_tx\", type number}, {\"economie_vs_sans_modele\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_performance_regles",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "identifiant",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "caeb5764-df86-40b9-be1d-675f6909ccbc",
+            "sourceColumn": "identifiant",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "libelle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bce26f96-2889-49a1-87e1-78378a2f6ceb",
+            "sourceColumn": "libelle",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gravite",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2494f7ab-a2a4-4788-9916-62d63fa281ea",
+            "sourceColumn": "gravite",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "typologie_visee",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "eab58139-0709-4af0-8164-9eeec83d0aff",
+            "sourceColumn": "typologie_visee",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "transactions_touchees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "b835be21-fd89-4ae1-b637-14cfb49a1b03",
+            "sourceColumn": "transactions_touchees",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "taux_declenchement_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "7cb4bf95-5738-4d7a-8a07-cb03e4d080fa",
+            "sourceColumn": "taux_declenchement_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "fraudes_captees",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "92742ce7-8f3d-41ff-ba90-46d6ba4aa509",
+            "sourceColumn": "fraudes_captees",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "precision_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "abc4a90c-5ac1-4c3c-a7a5-47a640947720",
+            "sourceColumn": "precision_pct",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "couverture_fraude_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "d667086a-930d-4ed8-9c16-bce4f5e89e7a",
+            "sourceColumn": "couverture_fraude_pct",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "a8a1e2d4-4db4-4fa7-a275-129f99664a30",
+        "partitions": [
+          {
+            "name": "fait_performance_regles",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_performance_regles.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"identifiant\", type text}, {\"libelle\", type text}, {\"gravite\", type text}, {\"typologie_visee\", type number}, {\"transactions_touchees\", Int64.Type}, {\"taux_declenchement_pct\", type number}, {\"fraudes_captees\", Int64.Type}, {\"precision_pct\", type number}, {\"couverture_fraude_pct\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fait_typologie_quotidien",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "yyyy-mm-dd",
+            "lineageTag": "b2df1c36-74a4-43df-8b2c-f2a6ce5b64a7",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "typologie_fraude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fabd3e3c-acdb-4b56-86e3-39acf5b4e590",
+            "sourceColumn": "typologie_fraude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cas",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "a7a22eec-1b0d-4fb7-9021-4f2293fa9aaf",
+            "sourceColumn": "cas",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "detectes",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "#,0",
+            "lineageTag": "a6e921ef-bb70-418a-8926-3d04fcb388f3",
+            "sourceColumn": "detectes",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "montant",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.00 \"$\"",
+            "lineageTag": "77a00f2c-3f21-41ee-a146-30e6faca13e3",
+            "sourceColumn": "montant",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "score_moyen",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0.0000",
+            "lineageTag": "19e535d8-92b4-433b-bbc1-9c1647cb6618",
+            "sourceColumn": "score_moyen",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "taux_detection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "0.00",
+            "lineageTag": "0b7ea0a5-7764-4e01-ab65-c7580d295422",
+            "sourceColumn": "taux_detection",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "c0e49e19-03ef-49bc-9e78-38f2fcf139c1",
+        "measures": [
+          {
+            "name": "Cas par typologie",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Nombre de fraudes par typologie",
+            "expression": "SUM(fait_typologie_quotidien[cas])",
+            "formatString": "#,0",
+            "lineageTag": "c9433936-a903-4291-9a9b-0632614cbaf1"
+          },
+          {
+            "name": "Pertes par typologie",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Montant en jeu par typologie",
+            "expression": "SUM(fait_typologie_quotidien[montant])",
+            "formatString": "#,0 \"$\"",
+            "lineageTag": "13399725-a2a7-4cd7-a0b0-0f05f41e8216"
+          },
+          {
+            "name": "Detection par typologie",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":false}"
+              }
+            ],
+            "description": "Rappel decompose par mode operatoire",
+            "expression": "DIVIDE(SUM(fait_typologie_quotidien[detectes]), SUM(fait_typologie_quotidien[cas]))",
+            "formatString": "0.0 %",
+            "lineageTag": "4e1d8944-518e-4ff0-b38b-49272e1e51d2"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fait_typologie_quotidien",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(CheminDonnees & \"fait_typologie_quotidien.csv\"),[Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Entetes = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    Types = Table.TransformColumnTypes(Entetes,{{\"date\", type date}, {\"typologie_fraude\", type text}, {\"cas\", Int64.Type}, {\"detectes\", Int64.Type}, {\"montant\", type number}, {\"score_moyen\", type number}, {\"taux_detection\", type number}}, \"en-US\")",
+                "in",
+                "    Types"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "name": "Fraude 360 - Banque",
+  "dataColors": [
+    "#1F3A5F",
+    "#2C8C99",
+    "#C9A227",
+    "#8C4A3C",
+    "#5B6B8C",
+    "#3E7CB1",
+    "#6BA292",
+    "#B45F5F",
+    "#7A5C8C",
+    "#9AA5B1"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F2933",
+  "tableAccent": "#1F3A5F",
+  "good": "#1B7F4B",
+  "neutral": "#B7791F",
+  "bad": "#B42318",
+  "maximum": "#1F3A5F",
+  "center": "#6BA292",
+  "minimum": "#C0D3E0",
+  "null": "#EEF1F4",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#1F2933"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#1F3A5F"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#3E4C59"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 32,
+      "color": "#1F3A5F"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E1E5EA"
+              }
+            },
+            "radius": 6
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "background": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#1F2933"
+              }
+            },
+            "fontSize": 11,
+            "fontFamily": "Segoe UI Semibold",
+            "alignment": "left"
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#1F3A5F"
+              }
+            },
+            "fontSize": 28,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#6B7684"
+              }
+            },
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid": [
+          {
+            "gridVerticalWeight": 1,
+            "gridHorizontalWeight": 1,
+            "outlineColor": {
+              "solid": {
+                "color": "#E1E5EA"
+              }
+            }
+          }
+        ],
+        "columnHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#1F3A5F"
+              }
+            },
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "values": [
+          {
+            "fontColorPrimary": {
+              "solid": {
+                "color": "#1F2933"
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": "#F4F6F8"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

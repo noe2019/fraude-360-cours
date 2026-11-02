@@ -1,0 +1,168 @@
+# =====================================================================
+#  Databricks Asset Bundle - projet Fraude-360
+#
+#  Deploiement :   databricks bundle deploy  -t dev
+#  Execution   :   databricks bundle run pipeline_fraude -t dev
+#
+#  Le bundle versionne l'ORCHESTRATION au meme titre que le code : le job,
+#  ses dependances entre taches, ses clusters et sa planification sont dans
+#  Git, pas cliques dans une interface.
+# =====================================================================
+bundle:
+  name: fraude360
+
+variables:
+  catalogue:
+    description: Catalogue Unity Catalog du projet
+    default: fraude360
+  courriel_alertes:
+    description: Destinataire des notifications d'echec
+    default: equipe-fraude@exemple.ca
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+      root_path: /Shared/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - level: CAN_VIEW
+        group_name: analystes-fraude
+
+resources:
+  jobs:
+    pipeline_fraude:
+      name: "[${bundle.target}] Fraude-360 - pipeline quotidien"
+      description: >
+        Ingestion, qualite, variables, scoring et surveillance de la detection
+        de fraude transactionnelle.
+      schedule:
+        # 04 h 15, heure de Montreal : apres la cloture des systemes de paiement
+        quartz_cron_expression: "0 15 4 * * ?"
+        timezone_id: America/Toronto
+        pause_status: UNPAUSED
+      email_notifications:
+        on_failure:
+          - ${var.courriel_alertes}
+      max_concurrent_runs: 1
+      queue:
+        enabled: true
+
+      job_clusters:
+        - job_cluster_key: grappe_etl
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: Standard_DS3_v2
+            data_security_mode: SINGLE_USER
+            autoscale:
+              min_workers: 2
+              max_workers: 8
+            azure_attributes:
+              availability: ON_DEMAND_AZURE
+            spark_conf:
+              spark.sql.shuffle.partitions: "auto"
+        - job_cluster_key: grappe_ml
+          new_cluster:
+            spark_version: "15.4.x-cpu-ml-scala2.12"
+            node_type_id: Standard_DS4_v2
+            data_security_mode: SINGLE_USER
+            num_workers: 2
+
+      tasks:
+        - task_key: ingestion_bronze
+          job_cluster_key: grappe_etl
+          notebook_task:
+            notebook_path: ../../notebooks/01_ingestion_autoloader.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+
+        - task_key: qualite_silver
+          depends_on: [{task_key: ingestion_bronze}]
+          job_cluster_key: grappe_etl
+          notebook_task:
+            notebook_path: ../../notebooks/02_qualite_silver.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+
+        - task_key: variables_gold
+          depends_on: [{task_key: qualite_silver}]
+          job_cluster_key: grappe_etl
+          notebook_task:
+            notebook_path: ../../notebooks/03_variables_gold.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+              version_variables: "1"
+
+        - task_key: scoring_par_lots
+          depends_on: [{task_key: variables_gold}]
+          job_cluster_key: grappe_ml
+          notebook_task:
+            notebook_path: ../../notebooks/05_deploiement_serving.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+
+        - task_key: surveillance
+          depends_on: [{task_key: scoring_par_lots}]
+          job_cluster_key: grappe_ml
+          notebook_task:
+            notebook_path: ../../notebooks/06_surveillance.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+
+        # Le reentrainement ne s'execute QUE si la surveillance l'a demande.
+        - task_key: verifier_declencheur
+          depends_on: [{task_key: surveillance}]
+          condition_task:
+            op: EQUAL_TO
+            left: "{{tasks.surveillance.values.reentrainer}}"
+            right: "true"
+
+        - task_key: reentrainement
+          depends_on:
+            - task_key: verifier_declencheur
+              outcome: "true"
+          job_cluster_key: grappe_ml
+          notebook_task:
+            notebook_path: ../../notebooks/04_entrainement_mlflow.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+              etiquette: "v2"
+
+    # Job mensuel de reentrainement calendaire, independant des alertes
+    reentrainement_mensuel:
+      name: "[${bundle.target}] Fraude-360 - reentrainement mensuel"
+      schedule:
+        quartz_cron_expression: "0 0 3 1 * ?"
+        timezone_id: America/Toronto
+      tasks:
+        - task_key: reentrainement
+          new_cluster:
+            spark_version: "15.4.x-cpu-ml-scala2.12"
+            node_type_id: Standard_DS4_v2
+            num_workers: 2
+          notebook_task:
+            notebook_path: ../../notebooks/04_entrainement_mlflow.py
+            base_parameters:
+              catalogue: ${var.catalogue}
+              etiquette: "mensuel"
+
+  model_serving_endpoints:
+    fraude360_scoring:
+      name: fraude360-scoring
+      config:
+        served_entities:
+          - entity_name: ${var.catalogue}.gold.modele_fraude
+            entity_alias: champion
+            workload_size: Small
+            scale_to_zero_enabled: true
+        auto_capture_config:
+          catalog_name: ${var.catalogue}
+          schema_name: surveillance
+          table_name_prefix: scoring
+          enabled: true

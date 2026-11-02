@@ -1,0 +1,265 @@
+{
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":{\"visual\":\"2.12.0\",\"report\":\"3.4.0\",\"page\":\"2.3.1\"}},\"customTheme\":{\"name\":\"FraudeBanque.json\",\"version\":{\"visual\":\"2.12.0\",\"report\":\"3.4.0\",\"page\":\"2.3.1\"}}},\"activeSectionIndex\":2,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useStylableVisualContainerHeader\":true,\"useEnhancedTooltips\":false}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "FraudeBanque.json",
+            "path": "FraudeBanque.json",
+            "type": "CustomTheme"
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": "RegisteredResources"
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "2 - File d'enquete",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "page_enquete",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"visuel012\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":12,\"z\":0,\"width\":296,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_alertes.Alertes en attente\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Alertes en attente\"},\"Name\":\"fait_alertes.Alertes en attente\",\"NativeReferenceName\":\"Alertes en attente\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Alertes'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 296.00,
+          "x": 16.00,
+          "y": 12.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"visuel013\",\"layouts\":[{\"id\":0,\"position\":{\"x\":328,\"y\":12,\"z\":1000,\"width\":296,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_alertes.Alertes critiques\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Alertes critiques\"},\"Name\":\"fait_alertes.Alertes critiques\",\"NativeReferenceName\":\"Alertes critiques\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Critiques'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 296.00,
+          "x": 328.00,
+          "y": 12.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"visuel014\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":12,\"z\":2000,\"width\":296,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_alertes.Montant sous enquete\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Montant sous enquete\"},\"Name\":\"fait_alertes.Montant sous enquete\",\"NativeReferenceName\":\"Montant sous enquete\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Montant en jeu'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 296.00,
+          "x": 640.00,
+          "y": 12.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"visuel015\",\"layouts\":[{\"id\":0,\"position\":{\"x\":952,\"y\":12,\"z\":3000,\"width\":296,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_alertes.Score moyen des alertes\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Score moyen des alertes\"},\"Name\":\"fait_alertes.Score moyen des alertes\",\"NativeReferenceName\":\"Score moyen des alertes\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Score moyen'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 296.00,
+          "x": 952.00,
+          "y": 12.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"visuel016\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":120,\"z\":4000,\"width\":620,\"height\":250}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fait_alertes.priorite\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_alertes.Alertes en attente\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"priorite\"},\"Name\":\"fait_alertes.priorite\",\"NativeReferenceName\":\"priorite\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Alertes en attente\"},\"Name\":\"fait_alertes.Alertes en attente\",\"NativeReferenceName\":\"Alertes en attente\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'File d'enquete par niveau de priorite'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 250.00,
+          "width": 620.00,
+          "x": 16.00,
+          "y": 120.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"visuel017\",\"layouts\":[{\"id\":0,\"position\":{\"x\":644,\"y\":120,\"z\":5000,\"width\":620,\"height\":250}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fait_alertes.categorie_marchand\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_alertes.Montant sous enquete\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"categorie_marchand\"},\"Name\":\"fait_alertes.categorie_marchand\",\"NativeReferenceName\":\"categorie_marchand\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Montant sous enquete\"},\"Name\":\"fait_alertes.Montant sous enquete\",\"NativeReferenceName\":\"Montant sous enquete\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Montant sous enquete par secteur marchand'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 250.00,
+          "width": 620.00,
+          "x": 644.00,
+          "y": 120.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"visuel018\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":382,\"z\":6000,\"width\":1248,\"height\":300}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_alertes.transaction_id\"},{\"queryRef\":\"fait_alertes.date\"},{\"queryRef\":\"fait_alertes.canal\"},{\"queryRef\":\"fait_alertes.categorie_marchand\"},{\"queryRef\":\"Sum(fait_alertes.montant)\"},{\"queryRef\":\"Max(fait_alertes.score_modele)\"},{\"queryRef\":\"fait_alertes.regles_declenchees\"},{\"queryRef\":\"fait_alertes.decision\"},{\"queryRef\":\"fait_alertes.statut_enquete\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_alertes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"transaction_id\"},\"Name\":\"fait_alertes.transaction_id\",\"NativeReferenceName\":\"transaction_id\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"date\"},\"Name\":\"fait_alertes.date\",\"NativeReferenceName\":\"date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"canal\"},\"Name\":\"fait_alertes.canal\",\"NativeReferenceName\":\"canal\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"categorie_marchand\"},\"Name\":\"fait_alertes.categorie_marchand\",\"NativeReferenceName\":\"categorie_marchand\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"montant\"}},\"Function\":0},\"Name\":\"Sum(fait_alertes.montant)\",\"NativeReferenceName\":\"montant\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"score_modele\"}},\"Function\":3},\"Name\":\"Max(fait_alertes.score_modele)\",\"NativeReferenceName\":\"score\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"regles_declenchees\"},\"Name\":\"fait_alertes.regles_declenchees\",\"NativeReferenceName\":\"regles_declenchees\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"decision\"},\"Name\":\"fait_alertes.decision\",\"NativeReferenceName\":\"decision\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"statut_enquete\"},\"Name\":\"fait_alertes.statut_enquete\",\"NativeReferenceName\":\"statut_enquete\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Transactions a examiner, les plus risquees en premier'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 300.00,
+          "width": 1248.00,
+          "x": 16.00,
+          "y": 382.00,
+          "z": 6000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "3 - Modele et surveillance",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "page_modele",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"visuel019\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":12,\"z\":0,\"width\":620,\"height\":220}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_performance_modele.jeu_variables\"},{\"queryRef\":\"fait_performance_modele.algorithme\"},{\"queryRef\":\"Max(fait_performance_modele.pr_auc)\"},{\"queryRef\":\"Max(fait_performance_modele.rappel)\"},{\"queryRef\":\"Max(fait_performance_modele.precision)\"},{\"queryRef\":\"Max(fait_performance_modele.cout_par_1000_tx)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_performance_modele\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"jeu_variables\"},\"Name\":\"fait_performance_modele.jeu_variables\",\"NativeReferenceName\":\"jeu_variables\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"algorithme\"},\"Name\":\"fait_performance_modele.algorithme\",\"NativeReferenceName\":\"algorithme\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"pr_auc\"}},\"Function\":3},\"Name\":\"Max(fait_performance_modele.pr_auc)\",\"NativeReferenceName\":\"PR-AUC\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"rappel\"}},\"Function\":3},\"Name\":\"Max(fait_performance_modele.rappel)\",\"NativeReferenceName\":\"rappel\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"precision\"}},\"Function\":3},\"Name\":\"Max(fait_performance_modele.precision)\",\"NativeReferenceName\":\"precision\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"cout_par_1000_tx\"}},\"Function\":3},\"Name\":\"Max(fait_performance_modele.cout_par_1000_tx)\",\"NativeReferenceName\":\"cout/1000tx\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Comparaison des versions du modele'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 220.00,
+          "width": 620.00,
+          "x": 16.00,
+          "y": 12.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"visuel020\",\"layouts\":[{\"id\":0,\"position\":{\"x\":644,\"y\":12,\"z\":1000,\"width\":620,\"height\":220}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fait_ab_test.strategie\",\"active\":true}],\"Y\":[{\"queryRef\":\"Avg(fait_ab_test.cout_par_1000_tx)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_ab_test\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"strategie\"},\"Name\":\"fait_ab_test.strategie\",\"NativeReferenceName\":\"strategie\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"cout_par_1000_tx\"}},\"Function\":1},\"Name\":\"Avg(fait_ab_test.cout_par_1000_tx)\",\"NativeReferenceName\":\"cout/1000tx\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Test A/B : cout par 1 000 transactions selon la strategie'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 220.00,
+          "width": 620.00,
+          "x": 644.00,
+          "y": 12.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"visuel021\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":244,\"z\":2000,\"width\":820,\"height\":250}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_derive.PSI maximal\"}],\"Series\":[{\"queryRef\":\"fait_derive.variable\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_derive\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"date\"},\"Name\":\"dim_date.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"PSI maximal\"},\"Name\":\"fait_derive.PSI maximal\",\"NativeReferenceName\":\"PSI maximal\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"variable\"},\"Name\":\"fait_derive.variable\",\"NativeReferenceName\":\"variable\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Derive des variables (PSI) - alerte au-dela de 0,25'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 250.00,
+          "width": 820.00,
+          "x": 16.00,
+          "y": 244.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"visuel022\",\"layouts\":[{\"id\":0,\"position\":{\"x\":844,\"y\":244,\"z\":3000,\"width\":420,\"height\":250}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_derive.variable\"},{\"queryRef\":\"fait_derive.PSI maximal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_derive\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"variable\"},\"Name\":\"fait_derive.variable\",\"NativeReferenceName\":\"variable\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"PSI maximal\"},\"Name\":\"fait_derive.PSI maximal\",\"NativeReferenceName\":\"PSI maximal\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Variables les plus instables'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 250.00,
+          "width": 420.00,
+          "x": 844.00,
+          "y": 244.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"visuel023\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":506,\"z\":4000,\"width\":1248,\"height\":190}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_performance_regles.identifiant\"},{\"queryRef\":\"fait_performance_regles.libelle\"},{\"queryRef\":\"Sum(fait_performance_regles.fraudes_captees)\"},{\"queryRef\":\"Max(fait_performance_regles.precision_pct)\"},{\"queryRef\":\"Max(fait_performance_regles.couverture_fraude_pct)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_performance_regles\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"identifiant\"},\"Name\":\"fait_performance_regles.identifiant\",\"NativeReferenceName\":\"identifiant\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"libelle\"},\"Name\":\"fait_performance_regles.libelle\",\"NativeReferenceName\":\"libelle\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"fraudes_captees\"}},\"Function\":0},\"Name\":\"Sum(fait_performance_regles.fraudes_captees)\",\"NativeReferenceName\":\"fraudes_captees\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"precision_pct\"}},\"Function\":3},\"Name\":\"Max(fait_performance_regles.precision_pct)\",\"NativeReferenceName\":\"precision %\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"couverture_fraude_pct\"}},\"Function\":3},\"Name\":\"Max(fait_performance_regles.couverture_fraude_pct)\",\"NativeReferenceName\":\"couverture %\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Performance individuelle des regles expertes'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 190.00,
+          "width": 1248.00,
+          "x": 16.00,
+          "y": 506.00,
+          "z": 4000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "1 - Pilotage",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "page_pilotage",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"visuel001\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":12,\"z\":0,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Nb transactions\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Nb transactions\"},\"Name\":\"fait_kpi_quotidien.Nb transactions\",\"NativeReferenceName\":\"Nb transactions\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Transactions'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 16.00,
+          "y": 12.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"visuel002\",\"layouts\":[{\"id\":0,\"position\":{\"x\":224,\"y\":12,\"z\":1000,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Nb fraudes\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Nb fraudes\"},\"Name\":\"fait_kpi_quotidien.Nb fraudes\",\"NativeReferenceName\":\"Nb fraudes\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Fraudes confirmees'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 224.00,
+          "y": 12.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"visuel003\",\"layouts\":[{\"id\":0,\"position\":{\"x\":432,\"y\":12,\"z\":2000,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Taux de detection\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Taux de detection\"},\"Name\":\"fait_kpi_quotidien.Taux de detection\",\"NativeReferenceName\":\"Taux de detection\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taux de detection'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 432.00,
+          "y": 12.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"visuel004\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":12,\"z\":3000,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Pertes evitees\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes evitees\"},\"Name\":\"fait_kpi_quotidien.Pertes evitees\",\"NativeReferenceName\":\"Pertes evitees\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Pertes evitees'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 640.00,
+          "y": 12.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"visuel005\",\"layouts\":[{\"id\":0,\"position\":{\"x\":848,\"y\":12,\"z\":4000,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Pertes subies\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes subies\"},\"Name\":\"fait_kpi_quotidien.Pertes subies\",\"NativeReferenceName\":\"Pertes subies\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Pertes subies'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 848.00,
+          "y": 12.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"visuel006\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1056,\"y\":12,\"z\":5000,\"width\":196,\"height\":96}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_kpi_quotidien.Cout pour 1000 transactions\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Cout pour 1000 transactions\"},\"Name\":\"fait_kpi_quotidien.Cout pour 1000 transactions\",\"NativeReferenceName\":\"Cout pour 1000 transactions\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Cout / 1000 tx'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.00,
+          "width": 196.00,
+          "x": 1056.00,
+          "y": 12.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"visuel007\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":120,\"z\":6000,\"width\":820,\"height\":260}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_kpi_quotidien.Pertes evitees\"},{\"queryRef\":\"fait_kpi_quotidien.Pertes subies\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"date\"},\"Name\":\"dim_date.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes evitees\"},\"Name\":\"fait_kpi_quotidien.Pertes evitees\",\"NativeReferenceName\":\"Pertes evitees\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes subies\"},\"Name\":\"fait_kpi_quotidien.Pertes subies\",\"NativeReferenceName\":\"Pertes subies\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Dollars de fraude evites et subis, par jour'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.00,
+          "width": 820.00,
+          "x": 16.00,
+          "y": 120.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"visuel008\",\"layouts\":[{\"id\":0,\"position\":{\"x\":844,\"y\":120,\"z\":7000,\"width\":420,\"height\":260}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_date.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_kpi_quotidien.Taux de detection\"},{\"queryRef\":\"fait_kpi_quotidien.Taux d'alerte\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_kpi_quotidien\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"dim_date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"date\"},\"Name\":\"dim_date.date\",\"NativeReferenceName\":\"date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Taux de detection\"},\"Name\":\"fait_kpi_quotidien.Taux de detection\",\"NativeReferenceName\":\"Taux de detection\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Taux d'alerte\"},\"Name\":\"fait_kpi_quotidien.Taux d'alerte\",\"NativeReferenceName\":\"Taux d'alerte\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taux de detection et charge d'alertes'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 260.00,
+          "width": 420.00,
+          "x": 844.00,
+          "y": 120.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"visuel009\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":392,\"z\":8000,\"width\":400,\"height\":288}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fait_typologie_quotidien.typologie_fraude\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_typologie_quotidien.Pertes par typologie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_typologie_quotidien\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"typologie_fraude\"},\"Name\":\"fait_typologie_quotidien.typologie_fraude\",\"NativeReferenceName\":\"typologie_fraude\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes par typologie\"},\"Name\":\"fait_typologie_quotidien.Pertes par typologie\",\"NativeReferenceName\":\"Pertes par typologie\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Repartition des pertes par typologie'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 400.00,
+          "x": 16.00,
+          "y": 392.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"visuel010\",\"layouts\":[{\"id\":0,\"position\":{\"x\":424,\"y\":392,\"z\":9000,\"width\":412,\"height\":288}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fait_typologie_quotidien.typologie_fraude\",\"active\":true}],\"Y\":[{\"queryRef\":\"fait_typologie_quotidien.Detection par typologie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_typologie_quotidien\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"typologie_fraude\"},\"Name\":\"fait_typologie_quotidien.typologie_fraude\",\"NativeReferenceName\":\"typologie_fraude\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Detection par typologie\"},\"Name\":\"fait_typologie_quotidien.Detection par typologie\",\"NativeReferenceName\":\"Detection par typologie\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taux de detection par typologie'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 412.00,
+          "x": 424.00,
+          "y": 392.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"visuel011\",\"layouts\":[{\"id\":0,\"position\":{\"x\":844,\"y\":392,\"z\":10000,\"width\":420,\"height\":288}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"fait_typologie_quotidien.typologie_fraude\"},{\"queryRef\":\"fait_typologie_quotidien.Cas par typologie\"},{\"queryRef\":\"fait_typologie_quotidien.Pertes par typologie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f0\",\"Entity\":\"fait_typologie_quotidien\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"typologie_fraude\"},\"Name\":\"fait_typologie_quotidien.typologie_fraude\",\"NativeReferenceName\":\"typologie_fraude\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Cas par typologie\"},\"Name\":\"fait_typologie_quotidien.Cas par typologie\",\"NativeReferenceName\":\"Cas par typologie\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f0\"}},\"Property\":\"Pertes par typologie\"},\"Name\":\"fait_typologie_quotidien.Pertes par typologie\",\"NativeReferenceName\":\"Pertes par typologie\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Detail par typologie'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 420.00,
+          "x": 844.00,
+          "y": 392.00,
+          "z": 10000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "FraudeBanque.json"
+}

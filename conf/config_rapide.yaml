@@ -1,0 +1,178 @@
+# =====================================================================
+#  FRAUDE-360 — Configuration DE DEMONSTRATION RAPIDE (~3 minutes)
+#  Memes etapes, volumes reduits. Utilisation :
+#     python -m fraude360 tout --config conf/config_rapide.yaml
+#  Toutes les etapes du pipeline lisent ce fichier.
+#  Modifier ici = modifier partout. Aucune valeur en dur dans le code.
+# =====================================================================
+
+projet:
+  nom: "fraude-360"
+  version: "1.0.0"
+  description: "Detection de la fraude transactionnelle - prototype de bout en bout"
+  devise: "CAD"
+
+# ---------------------------------------------------------------------
+# Environnement d'execution
+#   local      -> Spark local[*], stockage sur disque, MLflow fichier
+#   databricks -> Spark du cluster, Unity Catalog / ADLS Gen2, MLflow workspace
+# ---------------------------------------------------------------------
+environnement:
+  cible: "local"              # local | databricks
+  spark_master: "local[*]"
+  spark_driver_memory: "3g"
+  spark_shuffle_partitions: 16
+  # delta = format cible sur Databricks ; parquet = repli local sans acces Maven
+  format_table: "parquet"     # parquet | delta
+  seed: 42
+
+# ---------------------------------------------------------------------
+# Chemins (relatifs a la racine du projet en local)
+# ---------------------------------------------------------------------
+chemins:
+  racine_donnees: "data"
+  atterrissage: "data/00_landing"       # fichiers bruts deposes par les systemes sources
+  bronze: "data/01_bronze"              # copie fidele + metadonnees techniques
+  silver: "data/02_silver"              # nettoye, dedoublonne, conforme
+  gold: "data/03_gold"                  # tables analytiques et variables de modele
+  quarantaine: "data/99_quarantaine"    # lignes rejetees par les controles qualite
+  artefacts: "artifacts"                # figures, rapports, modeles exportes
+  exports_bi: "powerbi/data"            # extraits consommes par Power BI
+  mlruns: "mlruns"                      # entrepot MLflow local
+  journaux: "logs"
+
+# Sur Databricks : catalogue Unity Catalog + conteneur ADLS Gen2
+databricks:
+  catalogue: "fraude360"
+  schema_bronze: "bronze"
+  schema_silver: "silver"
+  schema_gold: "gold"
+  point_montage: "abfss://lakehouse@stfraude360.dfs.core.windows.net"
+  experience_mlflow: "/Shared/fraude360/experiences"
+  modele_enregistre: "fraude360.gold.modele_fraude"
+  point_terminaison_serving: "fraude360-scoring"
+
+# ---------------------------------------------------------------------
+# Generation des donnees synthetiques
+# ---------------------------------------------------------------------
+generation:
+  date_debut: "2026-01-01"
+  nb_jours: 60                  # periode historique initiale (mode rapide)
+  nb_clients: 4000
+  nb_cartes: 5000
+  nb_marchands: 900
+  nb_transactions: 60000
+  taux_fraude_cible: 0.0045     # ~0,45 % des transactions
+  # Poids relatifs des typologies de fraude presentes des le depart
+  typologies:
+    carte_perdue_volee: 0.30
+    achat_en_ligne_cnp: 0.34
+    usurpation_de_compte: 0.20
+    test_de_carte: 0.16
+  # Delai moyen avant qu'une fraude soit confirmee (contestation du membre)
+  delai_labellisation_jours: 7
+
+# Nouvelle typologie injectee APRES la mise en production (etape 10)
+nouvelle_fraude:
+  nom: "arnaque_virement_instantane"
+  jours_supplementaires: 15
+  nb_transactions: 20000
+  part_dans_la_fraude: 0.45     # la nouvelle typologie represente 45 % des fraudes de la periode
+
+# ---------------------------------------------------------------------
+# Decoupage temporel (aucun melange aleatoire : on respecte le temps)
+# ---------------------------------------------------------------------
+decoupage:
+  jours_entrainement: 40        # J0  -> J39
+  jours_validation: 8           # J40 -> J47
+  jours_test: 12                # J48 -> J59
+
+# ---------------------------------------------------------------------
+# Controles de qualite appliques en Silver
+# ---------------------------------------------------------------------
+qualite:
+  montant_min: 0.01
+  montant_max: 25000.0
+  colonnes_obligatoires: ["transaction_id", "horodatage", "carte_id", "client_id", "montant"]
+  devises_autorisees: ["CAD", "USD", "EUR"]
+  seuil_rejet_bloquant: 0.05    # >5 % de lignes rejetees = echec du lot
+
+# ---------------------------------------------------------------------
+# Modelisation
+# ---------------------------------------------------------------------
+modelisation:
+  cible: "est_fraude"
+  metrique_selection: "pr_auc"
+  modeles: ["regression_logistique", "foret_aleatoire", "gradient_boosting"]
+  calibration: "isotonic"
+  # Economie de la decision (dollars) : sert a choisir le seuil optimal
+  economie:
+    cout_faux_negatif_ratio: 1.0      # on perd le montant de la transaction
+    cout_faux_positif: 12.0           # cout d'une revue manuelle + friction membre
+    cout_vrai_positif: 4.0            # cout du traitement d'une alerte juste
+    gain_vrai_negatif: 0.0
+  seuil_par_defaut: 0.5
+  budget_alertes_par_jour: 20        # capacite de l'equipe d'enquete
+
+# ---------------------------------------------------------------------
+# Test A/B champion / challenger
+# ---------------------------------------------------------------------
+ab_test:
+  part_challenger: 0.5
+  cle_affectation: "carte_id"         # affectation stable par carte, pas par transaction
+  alpha: 0.05
+  nb_bootstrap: 500
+  gain_minimal_detectable: 0.015      # +1,5 pt de rappel juge significatif
+  taux_alerte_max_pct: 1.5            # plafond operationnel : au-dela, l'equipe d'enquete sature
+
+# ---------------------------------------------------------------------
+# Service de scoring (API temps reel)
+# ---------------------------------------------------------------------
+service:
+  hote: "127.0.0.1"
+  port: 8077
+  seuil_blocage: null                 # null = seuil optimal issu de l'entrainement
+  seuil_revue: 0.35                   # entre revue et blocage -> file d'enquete
+  latence_cible_ms: 100
+
+# ---------------------------------------------------------------------
+# Surveillance
+# ---------------------------------------------------------------------
+surveillance:
+  fenetre_jours: 1
+  psi_avertissement: 0.10
+  psi_alerte: 0.25
+  chute_rappel_alerte: 0.10           # -10 pts de rappel = alerte
+  hausse_taux_alerte: 0.50            # +50 % d'alertes = anomalie operationnelle
+  variables_suivies:
+    - montant
+    - nb_tx_carte_24h
+    - montant_somme_carte_24h
+    - secondes_depuis_tx_precedente
+    - vitesse_kmh
+    - ratio_montant_moyenne_carte
+    - est_nouveau_marchand_carte
+    - taux_fraude_marchand_30j
+
+# ---------------------------------------------------------------------
+# Reentrainement
+# ---------------------------------------------------------------------
+reentrainement:
+  declencheurs: ["psi_alerte", "chute_rappel", "nouvelle_typologie", "calendrier_mensuel"]
+  gain_minimal_pr_auc: 0.005          # ameliorer d'au moins 0,5 pt pour promouvoir
+  garde_fou_baisse_rappel: 0.02       # refuser si le rappel baisse de plus de 2 pts
+
+# ---------------------------------------------------------------------
+# Jeu de variables actif (bascule a 2 par l'etape 10)
+# ---------------------------------------------------------------------
+variables:
+  version: 1
+
+# Etape 13 - triage des alertes par modele de langage
+genai:
+  activer_ollama: true                  # false = repli deterministe force
+  modele: "llama3.1:8b"                 # ollama pull llama3.1:8b
+  hote_ollama: "http://127.0.0.1:11434" # rien ne sort du poste
+  nb_alertes: 15                        # alertes bloquees triees, par score decroissant
+  activer_juge: true                    # second appel : LLM-as-judge
+  nb_juges: 5                          # sous-echantillon evalue par le juge

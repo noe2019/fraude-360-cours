@@ -1,0 +1,13 @@
+line-length = 95
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = [
+  "E402",  # imports apres matplotlib.use("Agg") : voulu
+  "E501",  # longueur geree par le formateur
+]
+
+[lint.per-file-ignores]
+"tests/*" = ["E402"]
+"notebooks/*" = ["E402", "F821"]  # variables fournies par Databricks

@@ -1,0 +1,20 @@
+data/
+artifacts/
+mlruns/
+logs/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+.venv/
+venv/
+powerbi/data/
+powerbi/*.SemanticModel/.pbi/
+powerbi/*.Report/.pbi/
+.ipynb_checkpoints/
+
+# cours
+sas/donnees/
+corriges/
+solutions/
