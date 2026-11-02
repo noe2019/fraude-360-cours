@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  qualite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Installer les dependances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff
+
+      # Informatif : le style du code n'est pas encore entierement conforme a ruff.
+      - name: Analyse statique (informative)
+        continue-on-error: true
+        run: ruff check src/ tests/ --statistics
+
+      - name: Tests de non-regression
+        env:
+          PYTHONPATH: src
+        run: pytest tests/ -q
+
+      - name: Pipeline de bout en bout (configuration du cours)
+        env:
+          PYTHONPATH: src
+          MLFLOW_DISABLE_TELEMETRY: "true"
+        run: python -m fraude360 tout --config conf/config_cours.yaml
